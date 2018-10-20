@@ -1,7 +1,10 @@
 defmodule Combined do
+  import Convert
+  import Drop
+
   def height_to_mph(meters) do
     meters
-    |> Drop.fall_velocity
-    |> Convert.mps_to_mph
+    |> fall_velocity
+    |> mps_to_mph
   end
 end
