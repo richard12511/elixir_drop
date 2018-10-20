@@ -1,8 +1,8 @@
 {application,drop,
              [{applications,[kernel,stdlib,elixir,logger]},
               {description,"drop"},
-              {modules,['Elixir.Combined','Elixir.Convert','Elixir.Count',
-                        'Elixir.Drop','Elixir.Fact']},
+              {modules,['Elixir.Ask','Elixir.Combined','Elixir.Convert',
+                        'Elixir.Count','Elixir.Drop','Elixir.Fact']},
               {registered,[]},
               {vsn,"0.1.0"},
               {extra_applications,[logger]}]}.
