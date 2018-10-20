@@ -3,7 +3,7 @@
               {description,"drop"},
               {modules,['Elixir.Ask','Elixir.Combined','Elixir.Convert',
                         'Elixir.Count','Elixir.Drop','Elixir.Fact',
-                        'Elixir.Overall']},
+                        'Elixir.ListDrop','Elixir.Overall']},
               {registered,[]},
               {vsn,"0.1.0"},
               {extra_applications,[logger]}]}.
