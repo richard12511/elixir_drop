@@ -3,8 +3,9 @@
               {description,"drop"},
               {modules,['Elixir.Ask','Elixir.Combined','Elixir.Convert',
                         'Elixir.Count','Elixir.Drop','Elixir.Fact',
-                        'Elixir.ListDrop','Elixir.Overall','Elixir.Pascal',
-                        'Elixir.Tower','Elixir.Valid']},
+                        'Elixir.Hof','Elixir.ListDrop','Elixir.Overall',
+                        'Elixir.Pascal','Elixir.Planemo','Elixir.Tower',
+                        'Elixir.Valid','Elixir.Valid.Planemo']},
               {registered,[]},
               {vsn,"0.1.0"},
               {extra_applications,[logger]}]}.
