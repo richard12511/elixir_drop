@@ -4,7 +4,7 @@
               {modules,['Elixir.Ask','Elixir.Combined','Elixir.Convert',
                         'Elixir.Count','Elixir.Drop','Elixir.Fact',
                         'Elixir.ListDrop','Elixir.Overall','Elixir.Pascal',
-                        'Elixir.Tower']},
+                        'Elixir.Tower','Elixir.Valid']},
               {registered,[]},
               {vsn,"0.1.0"},
               {extra_applications,[logger]}]}.
