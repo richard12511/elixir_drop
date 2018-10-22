@@ -1,5 +1,15 @@
 defmodule Drop do
-  def fall_velocity(planemo, distance) do
+
+  def drop do
+      receive do
+        {from, planemo, distance} ->
+          send(from, {planemo, distance, fall_velocity(planemo, distance)})
+          drop()
+      end
+
+  end
+
+  defp fall_velocity(planemo, distance) do
     gravity = case planemo do
       :earth -> 9.8
       :moon -> 1.6
@@ -7,4 +17,5 @@ defmodule Drop do
     end
     :math.sqrt(2 * gravity * distance)
   end
+
 end
