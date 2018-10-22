@@ -1,8 +1,11 @@
 defmodule DropTest do
-  use ExUnit.Case
-  doctest Drop
+  use ExUnit.Case, async: true
 
-  test "greets the world" do
-    assert Drop.hello() == :world
+  test "Zero distance gives zero velocity" do
+    assert Drop.fall_velocity(:earth, 0) == 0
+  end
+
+  test "Mars calculation is correct" do
+    assert Drop.fall_velocity(:mars, 10) == :math.sqrt(2 * 3.71 * 10)
   end
 end
