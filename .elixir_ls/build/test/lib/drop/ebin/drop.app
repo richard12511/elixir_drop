@@ -5,6 +5,7 @@
                         'Elixir.Count','Elixir.Drop','Elixir.Fact',
                         'Elixir.Hof','Elixir.ListDrop','Elixir.MphDrop',
                         'Elixir.Overall','Elixir.Pascal','Elixir.Planemo',
+                        'Elixir.PlanemoStorage','Elixir.RecordDrop',
                         'Elixir.Tower','Elixir.Valid','Elixir.Valid.Planemo']},
               {registered,[]},
               {vsn,"0.1.0"},
