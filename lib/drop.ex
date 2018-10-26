@@ -2,7 +2,7 @@ defmodule Drop do
   require Planemo
 
   def drop do
-    # setup
+    setup()
     handle_drops()
   end
 
@@ -21,22 +21,25 @@ defmodule Drop do
     :math.sqrt(2 * gravity * distance)
   end
 
-  # def setup do
-  #   :ets.new(:planemos, [:named_table, {:keypos, Planemo.planemo(:name) + 1}])
-  #   info = [
-  #     {:mercury, 57.9, 4878, 3.7},
-  #     {:venus, 57.9, 4878, 8.9},
-  #     {:earth, 57.9, 4878, 9.8},
-  #     {:mars, 57.9, 4878, 3.7},
-  #     {:jupiter, 57.9, 4878, 23.1},
-  #     {:saturn, 57.9, 4878, 9.0},
-  #     {:uranus, 57.9, 4878, 8.7},
-  #     {:neptune, 57.9, 4878, 11.0},
-  #     {:pluto, 57.9, 4878, 0.6}
-  #   ]
-  #
-  #   insert_into_table(info)
-  # end
+  def setup do
+    :mnesia.create_schema([node()])
+    :mnesia.start()
+    :mnesia.create_table(PlanemoTable, [{:attributes, [:name, :gravity, :diameter, :distance_from_sun]}, {:record_name, :planemo}])
+
+    f = fn ->
+      :mnesia.write(PlanemoTable, Planemo.planemo(name: :mercury, gravity: 3.7, diameter: 4878, distance_from_sun: 57.9), :write)
+      :mnesia.write(PlanemoTable, Planemo.planemo(name: :venus, gravity: 8.9, diameter: 12104, distance_from_sun: 108.2), :write)
+      :mnesia.write(PlanemoTable, Planemo.planemo(name: :earth, gravity: 9.8, diameter: 12756, distance_from_sun: 149.6), :write)
+      :mnesia.write(PlanemoTable, Planemo.planemo(name: :mars, gravity: 3.7, diameter: 6787, distance_from_sun: 227.9), :write)
+      :mnesia.write(PlanemoTable, Planemo.planemo(name: :jupiter, gravity: 23.1, diameter: 142796, distance_from_sun: 778.3), :write)
+      :mnesia.write(PlanemoTable, Planemo.planemo(name: :saturn, gravity: 9.0, diameter: 120660, distance_from_sun: 1427.0), :write)
+      :mnesia.write(PlanemoTable, Planemo.planemo(name: :uranus, gravity: 8.0, diameter: 51118, distance_from_sun: 2871.0), :write)
+      :mnesia.write(PlanemoTable, Planemo.planemo(name: :neptune, gravity: 11.0, diameter: 30200, distance_from_sun: 4497.1), :write)
+      :mnesia.write(PlanemoTable, Planemo.planemo(name: :pluto, gravity: 0.6, diameter: 2300, distance_from_sun: 5913.0), :write)
+    end
+
+    :mnesia.transaction(f)
+  end
   #
   # def insert_into_table([]) do
   #   :undefined
